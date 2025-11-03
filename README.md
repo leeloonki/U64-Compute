@@ -179,6 +179,9 @@ U64-Compute/
 └── obj/                          # Object files (build artifacts)
 ```
 
+  - functional_test = "这个库能工作吗？" ✅
+  - benchmark = "这个库跑得有多快？" 🚀
+
 ### Performance Architecture
 
 1. **Auto-Detection Layer**: Runtime detection of CPU features and optimal SIMD instructions
