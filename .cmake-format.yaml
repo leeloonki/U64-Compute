@@ -1,0 +1,8 @@
+format:
+  tab_size: 4
+  line_width: 80
+
+  max_pargs_hwrap: 6
+  separate_ctrl_name_with_space: false
+  separate_fn_name_with_space: false
+  command_case: lower
