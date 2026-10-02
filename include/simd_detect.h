@@ -3,64 +3,57 @@
 #include <cstdint>
 #include <string>
 
+// 编译器
+#if defined(__clang__)
+    #define COMPILER_CLANG
+#elif defined(__GNUC__) || defined(__GNUG__)
+    #define COMPILER_GCC
+#elif defined(_MSC_VER)
+    #define COMPILER_MSVC
+#endif
+
 // 架构检测宏
-#if defined(__x86_64__)
-    #ifndef SIMD_ARCH_X86_64
-        #define SIMD_ARCH_X86_64
-    #endif
-#elif defined(__aarch64__)
-    #ifndef SIMD_ARCH_ARM64
-        #define SIMD_ARCH_ARM64
-    #endif
+#if defined(__x86_64__) || defined(_M_X64)
+    #define SIMD_ARCH_X86_64
+#elif defined(__aarch64__)|| defined(_M_ARM64)
+    #define SIMD_ARCH_ARM64
 #else
-    #ifndef SIMD_ARCH_UNKNOWN
-        #define SIMD_ARCH_UNKNOWN
-    #endif
+    #define SIMD_ARCH_UNKNOWN
 #endif
 
 // SIMD指令集检测
+
+
+// 指令集,核心能力
+// SSE2/4.1 128 位向量化
+// AVX2,256 位整数运算, FMA
+// AVX512,512 位超长向量
+
 #ifdef SIMD_ARCH_X86_64
     #include <immintrin.h>
     #ifdef __SSE2__
-        #ifndef SIMD_HAS_SSE2
-            #define SIMD_HAS_SSE2
-        #endif
+        #define SIMD_HAS_SSE2
     #endif
     #ifdef __SSE4_1__
-        #ifndef SIMD_HAS_SSE41
-            #define SIMD_HAS_SSE41
-        #endif
-    #endif
-    #ifdef __AVX__
-        #ifndef SIMD_HAS_AVX
-            #define SIMD_HAS_AVX
-        #endif
+        #define SIMD_HAS_SSE41
     #endif
     #ifdef __AVX2__
-        #ifndef SIMD_HAS_AVX2
-            #define SIMD_HAS_AVX2
-        #endif
+        #define SIMD_HAS_AVX2
     #endif
     #ifdef __AVX512F__
-        #ifndef SIMD_HAS_AVX512F
-            #define SIMD_HAS_AVX512F
-        #endif
+        #define SIMD_HAS_AVX512F
     #endif
 #endif
 
 #if defined(SIMD_ARCH_ARM64)
     #if defined(__ARM_NEON) || defined(__ARM_NEON__)
-        #ifndef SIMD_HAS_NEON
-            #define SIMD_HAS_NEON
-        #endif
+        #define SIMD_HAS_NEON
         #include <arm_neon.h>
     #endif
-    #ifdef __ARM_FEATURE_SVE
-        #ifndef SIMD_HAS_SVE
-            #define SIMD_HAS_SVE
-        #endif
-        #include <arm_sve.h>
-    #endif
+    // #ifdef __ARM_FEATURE_SVE 
+    //     #define SIMD_HAS_SVE
+    //     #include <arm_sve.h>
+    // #endif
 #endif
 
 namespace uint64_compute {
@@ -71,12 +64,10 @@ enum class SIMDCapability {
     // x86 指令集
     SSE2 = 1 << 0,
     SSE41 = 1 << 1,
-    AVX = 1 << 2,
     AVX2 = 1 << 3,
     AVX512F = 1 << 4,
     // ARM 指令集
     NEON = 1 << 8,
-    SVE = 1 << 9
 };
 
 // 架构类型
@@ -94,7 +85,7 @@ private:
     static bool detection_done;
     
     // x86 CPUID检测
-    #ifdef SIMD_ARCH_X86_64
+    #if defined(SIMD_ARCH_X86_64)
     static void detect_x86_features();
     static bool has_cpuid();
     static void cpuid(int info[4], int function_id);
@@ -108,7 +99,7 @@ private:
 public:
     // 执行检测
     static void detect();
-    
+     
     // 查询能力
     static bool has_capability(SIMDCapability cap);
     static ArchType get_architecture();
@@ -118,11 +109,9 @@ public:
     // 具体指令集检测
     static bool has_sse2() { detect(); return has_capability(SIMDCapability::SSE2); }
     static bool has_sse41() { detect(); return has_capability(SIMDCapability::SSE41); }
-    static bool has_avx() { detect(); return has_capability(SIMDCapability::AVX); }
     static bool has_avx2() { detect(); return has_capability(SIMDCapability::AVX2); }
     static bool has_avx512f() { detect(); return has_capability(SIMDCapability::AVX512F); }
     static bool has_neon() { detect(); return has_capability(SIMDCapability::NEON); }
-    static bool has_sve() { detect(); return has_capability(SIMDCapability::SVE); }
 };
 
 // SIMD调度器 - 在运行时选择最佳实现

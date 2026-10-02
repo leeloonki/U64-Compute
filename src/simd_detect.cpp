@@ -127,9 +127,6 @@ void CrossPlatformSIMD::detect_arm_features() {
         detected_capabilities |= static_cast<uint32_t>(SIMDCapability::NEON);
     #endif
     
-    #ifdef SIMD_HAS_SVE
-        detected_capabilities |= static_cast<uint32_t>(SIMDCapability::SVE);
-    #endif
     
     // 运行时检测(仅Linux)
     #if defined(__linux__) && defined(SIMD_ARCH_ARM64)
@@ -166,11 +163,9 @@ std::string CrossPlatformSIMD::get_feature_string() {
     
     if (has_capability(SIMDCapability::SSE2)) features += "SSE2 ";
     if (has_capability(SIMDCapability::SSE41)) features += "SSE4.1 ";
-    if (has_capability(SIMDCapability::AVX)) features += "AVX ";
     if (has_capability(SIMDCapability::AVX2)) features += "AVX2 ";
     if (has_capability(SIMDCapability::AVX512F)) features += "AVX512F ";
     if (has_capability(SIMDCapability::NEON)) features += "NEON ";
-    if (has_capability(SIMDCapability::SVE)) features += "SVE ";
     
     return features.empty() ? "None" : features;
 }
@@ -179,7 +174,7 @@ int CrossPlatformSIMD::get_best_simd_width() {
     detect();
     
     if (has_capability(SIMDCapability::AVX512F)) return 512;
-    if (has_capability(SIMDCapability::AVX2) || has_capability(SIMDCapability::AVX)) return 256;
+    if (has_capability(SIMDCapability::AVX2)) return 256;
     if (has_capability(SIMDCapability::SSE2) || has_capability(SIMDCapability::NEON)) return 128;
     
     return 64; // 标量

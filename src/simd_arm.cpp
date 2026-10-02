@@ -1,7 +1,7 @@
 #include "simd_arm.h"
 
 // Only compile ARM code on ARM platforms
-#if defined(__aarch64__) || defined(__arm64__) || defined(_M_ARM64)
+// #if defined(__aarch64__) || defined(__arm64__) || defined(_M_ARM64)
 
 #include <arm_neon.h>
 #include <algorithm>
@@ -412,4 +412,4 @@ void ARMUtils::memory_barrier() {
 } // namespace simd_arm
 } // namespace uint64_compute
 
-#endif // ARM64 platform check
+// #endif // ARM64 platform check

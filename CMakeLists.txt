@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 # Options
 option(ENABLE_CUDA "Enable CUDA support" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
@@ -20,20 +22,50 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Compiler flags
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=native -Wall -Wextra")
+    # 通用警告标志
+    add_compile_options(-Wall -Wextra)
 
+    # 针对不同模式设置特定标志
+    # Debug 模式：不优化 + 调试信息
+    set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+    
+    # Release 模式：高优化 + 本地指令集
+    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native")
+    
     # Platform-specific flags for macOS
     if(APPLE)
-        execute_process(
-            COMMAND xcrun --show-sdk-path
-            OUTPUT_VARIABLE MACOS_SDK_PATH
-            OUTPUT_STRIP_TRAILING_WHITESPACE
-        )
-        if(MACOS_SDK_PATH)
-            set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isysroot ${MACOS_SDK_PATH}")
-        endif()
+    execute_process(COMMAND xcrun --show-sdk-path OUTPUT_VARIABLE SDK_PATH OUTPUT_STRIP_TRAILING_WHITESPACE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -isysroot ${SDK_PATH}")
     endif()
 endif()
+
+if(APPLE AND CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    find_program(BREW_PROG brew)
+    if(BREW_PROG)
+        execute_process(
+            COMMAND ${BREW_PROG} --prefix libomp
+            OUTPUT_VARIABLE LIBOMP_PREFIX
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+        )
+    endif()
+
+    # 2. 如果找到了路径，告诉 CMake 去这里找
+    if(LIBOMP_PREFIX)
+        message(STATUS "Found Homebrew libomp at: ${LIBOMP_PREFIX}")
+        set(OpenMP_ROOT ${LIBOMP_PREFIX})
+        list(APPEND CMAKE_PREFIX_PATH "${LIBOMP_PREFIX}")
+        set(OpenMP_CXX_FLAGS "-Xpreprocessor -fopenmp -I${LIBOMP_PREFIX}/include")
+        set(OpenMP_CXX_LIB_NAMES "omp")
+        set(OpenMP_omp_LIBRARY "${LIBOMP_PREFIX}/lib/libomp.dylib")
+    else()
+        message(WARNING "Could NOT find Homebrew libomp prefix. Please run 'brew install libomp'")
+    endif()
+endif()
+
+# Find OpenMP
+find_package(OpenMP REQUIRED)
+
+
 
 # Find OpenMP
 find_package(OpenMP REQUIRED)

@@ -187,20 +187,6 @@ void CrossPlatformSIMDDispatcher::initialize_arm() {
     #if defined(SIMD_ARCH_ARM64)
         simd_arm::ARMDispatcher::initialize();
         
-        #ifdef SIMD_HAS_SVE
-        if (simd_arm::ARMDispatcher::is_sve_available()) {
-            best_add_func = [](const uint64_t* a, const uint64_t* b, uint64_t* result, size_t count) {
-                simd_arm::SVEKernels::add_u64(a, b, result, count);
-            };
-            best_mul_func = [](const uint64_t* a, const uint64_t* b, uint64_t* result, size_t count) {
-                simd_arm::SVEKernels::multiply_u64(a, b, result, count);
-            };
-            selected_impl = "SVE";
-            std::cout << "Selected ARM SIMD: SVE" << std::endl;
-            return;
-        }
-        #endif
-        
         #ifdef SIMD_HAS_NEON
         if (simd_arm::ARMDispatcher::is_neon_available()) {
             best_add_func = [](const uint64_t* a, const uint64_t* b, uint64_t* result, size_t count) {
@@ -216,13 +202,13 @@ void CrossPlatformSIMDDispatcher::initialize_arm() {
                 simd_arm::NEONKernels::multiply_scalar_u64(a, scalar, result, count);
             };
             
-            #ifdef SIMD_ARCH_ARM64
+            
             best_matmul_func = [](const uint64_t* A, const uint64_t* B, uint64_t* C,
                                  size_t M, size_t N, size_t K, size_t lda, size_t ldb, size_t ldc) {
                 simd_arm::NEONKernels::matmul_block_u64(A, B, C, M, N, K, lda, ldb, ldc);
             };
-            #endif
             
+
             selected_impl = "NEON";
             std::cout << "Selected ARM SIMD: NEON" << std::endl;
             return;
@@ -291,7 +277,6 @@ std::string CrossPlatformSIMDDispatcher::get_available_implementations() {
     
     #if defined(SIMD_ARCH_ARM64)
         if (CrossPlatformSIMD::has_neon()) result += ", NEON";
-        if (CrossPlatformSIMD::has_sve()) result += ", SVE";
     #endif
     
     return result;

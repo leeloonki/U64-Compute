@@ -1,0 +1,110 @@
+[
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/cuda_detect.cpp.o -c /Users/lee/Desktop/U64-Compute/src/cuda_detect.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/cuda_detect.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/cuda_detect.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/hardware_detector.cpp.o -c /Users/lee/Desktop/U64-Compute/src/hardware_detector.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/hardware_detector.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/hardware_detector.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/simd_arm.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_arm.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_arm.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/simd_arm.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/simd_detect.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_detect.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_detect.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/simd_detect.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/simd_dispatcher.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_dispatcher.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_dispatcher.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/simd_dispatcher.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/simd_x86.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_x86.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_x86.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/simd_x86.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/uint64_array_impl.cpp.o -c /Users/lee/Desktop/U64-Compute/src/uint64_array_impl.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/uint64_array_impl.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/uint64_array_impl.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_static.dir/src/uint64_compute_impl.cpp.o -c /Users/lee/Desktop/U64-Compute/src/uint64_compute_impl.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/uint64_compute_impl.cpp",
+  "output": "CMakeFiles/uint64compute_static.dir/src/uint64_compute_impl.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/cuda_detect.cpp.o -c /Users/lee/Desktop/U64-Compute/src/cuda_detect.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/cuda_detect.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/cuda_detect.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/hardware_detector.cpp.o -c /Users/lee/Desktop/U64-Compute/src/hardware_detector.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/hardware_detector.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/hardware_detector.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/simd_arm.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_arm.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_arm.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/simd_arm.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/simd_detect.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_detect.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_detect.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/simd_detect.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/simd_dispatcher.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_dispatcher.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_dispatcher.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/simd_dispatcher.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/simd_x86.cpp.o -c /Users/lee/Desktop/U64-Compute/src/simd_x86.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/simd_x86.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/simd_x86.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/uint64_array_impl.cpp.o -c /Users/lee/Desktop/U64-Compute/src/uint64_array_impl.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/uint64_array_impl.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/uint64_array_impl.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -Duint64compute_shared_EXPORTS -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -fPIC -Wall -Wextra -fopenmp -o CMakeFiles/uint64compute_shared.dir/src/uint64_compute_impl.cpp.o -c /Users/lee/Desktop/U64-Compute/src/uint64_compute_impl.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/src/uint64_compute_impl.cpp",
+  "output": "CMakeFiles/uint64compute_shared.dir/src/uint64_compute_impl.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/functional_test.dir/functional_test.cpp.o -c /Users/lee/Desktop/U64-Compute/functional_test.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/functional_test.cpp",
+  "output": "CMakeFiles/functional_test.dir/functional_test.cpp.o"
+},
+{
+  "directory": "/Users/lee/Desktop/U64-Compute/build",
+  "command": "/opt/homebrew/bin/g++-15 -I/Users/lee/Desktop/U64-Compute/include  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fopenmp -g -O0 -std=c++17 -arch arm64 -Wall -Wextra -fopenmp -o CMakeFiles/benchmark.dir/benchmark.cpp.o -c /Users/lee/Desktop/U64-Compute/benchmark.cpp",
+  "file": "/Users/lee/Desktop/U64-Compute/benchmark.cpp",
+  "output": "CMakeFiles/benchmark.dir/benchmark.cpp.o"
+}
+]
